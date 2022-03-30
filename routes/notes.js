@@ -3,12 +3,12 @@ const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 
 
-// GET Route for retrieving all the feedback
+// GET Route for retrieving the notes
 fb.get('/', (req, res) =>
   readFromFile('../Develop/db/db.json').then((data) => res.json(JSON.parse(data)))
 );
 
-// POST Route for submitting feedback
+// POST Route for submitting notes
 fb.post('/', (req, res) => {
   // Destructuring assignment for the items in req.body
   const { note_title, note_body } = req.body;
