@@ -6,28 +6,28 @@ const PORT = process.env.port || 3001;
 const app = express();
 
 // Middleware
-app.use('/api', api);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('public'));
+
+app.use('/api', api);
 
 // Get routes
 app.get('/', (req, res) => 
 
-res.sendFile(path.join(__dirname, 'Develop/public/index.html'))
+res.sendFile(path.join(__dirname, 'public/index.html'))
 
 );
 
 app.get('/notes', (req, res) => 
 
-res.sendFile(path.join(__dirname, 'Develop/public/notes.html'))
+res.sendFile(path.join(__dirname, 'public/notes.html'))
 
 );
 
 app.get('*', (req, res) =>
 
-res.sendFile(path.join(__dirname, 'Develop/public/index.html'))
+res.sendFile(path.join(__dirname, 'public/index.html'))
 
 );
 
